@@ -1,39 +1,43 @@
+import Reveal from "../components/Reveal";
+
 function Experience() {
     return (
         <section
             id="experience"
             className="section standard-section"
         >
-            <div className="section-number">
+            <span className="section-number">
                 03
-            </div>
+            </span>
 
             <div className="section-content">
-                <h2>
-                    Experience
-                </h2>
+                <Reveal>
+                    <h2>Experience</h2>
+                </Reveal>
 
-                <div className="experience-list">
-                    <div className="experience-item">
-                        <span>
-                            2025
-                        </span>
+                <Reveal delay={180}>
+                    <div className="experience-list">
+                        <article className="experience-item">
+                            <span className="experience-year">
+                                2025
+                            </span>
 
-                        <div>
-                            <h3>
-                                UI Full Stack Developer Intern
-                            </h3>
+                            <div className="experience-info">
+                                <h3>
+                                    UI Full Stack Developer Intern
+                                </h3>
 
-                            <p>
-                                PT Atrindo Asia Global
-                            </p>
-                        </div>
+                                <p>
+                                    PT Atrindo Asia Global
+                                </p>
+                            </div>
 
-                        <span>
-                            Internship
-                        </span>
+                            <span className="experience-type">
+                                Internship
+                            </span>
+                        </article>
                     </div>
-                </div>
+                </Reveal>
             </div>
         </section>
     );

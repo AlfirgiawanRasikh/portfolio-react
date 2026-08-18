@@ -1,35 +1,92 @@
+import Reveal from "../components/Reveal";
+
 function Home() {
     return (
         <section
             id="home"
             className="section home-section"
         >
-            <div className="section-number">
+            <span className="section-number">
                 01
-            </div>
+            </span>
 
             <div className="home-content">
-                <p className="eyebrow">
-                    INFORMATICS ENGINEERING GRADUATE
-                </p>
 
-                <h1>
-                    Alfirgiawan
-                    <br />
-                    Rasikh
-                </h1>
+                <div className="home-heading">
+
+                    <Reveal>
+                        <p className="eyebrow">
+                            INFORMATICS ENGINEERING GRADUATE
+                        </p>
+                    </Reveal>
+
+                    <Reveal delay={90}>
+                        <h1>
+                            <span>Alfirgiawan</span>
+                            <span>Rasikh</span>
+                        </h1>
+                    </Reveal>
+
+                </div>
+
 
                 <div className="home-bottom">
-                    <p>
-                        Developer interested in web development,
-                        full-stack systems, and technical problem
-                        solving.
-                    </p>
 
-                    <span>
-                        Jakarta · Indonesia
-                    </span>
+                    <Reveal delay={170}>
+                        <p className="home-description">
+                            Developer interested in building practical
+                            web applications, backend systems, and
+                            solving technical problems through
+                            hands-on development.
+                        </p>
+                    </Reveal>
+
+
+                    <Reveal delay={230}>
+                        <div className="home-focus">
+                            <span className="home-meta-label">
+                                Focus
+                            </span>
+
+                            <p>
+                                Web Development
+                                <br />
+                                Backend Systems
+                                <br />
+                                IT Support
+                            </p>
+                        </div>
+                    </Reveal>
+
+
+                    <Reveal delay={290}>
+                        <div className="home-location">
+                            <span className="home-meta-label">
+                                Based in
+                            </span>
+
+                            <p>
+                                Jakarta
+                                <br />
+                                Indonesia
+                            </p>
+                        </div>
+                    </Reveal>
+
+
+                    <a
+                        href="#about"
+                        className="home-scroll"
+                        aria-label="Scroll to About section"
+                    >
+                        <span>Scroll</span>
+                        <span className="home-scroll-arrow">
+                            ↓
+                        </span>
+                    </a>
+
                 </div>
+
             </div>
         </section>
     );

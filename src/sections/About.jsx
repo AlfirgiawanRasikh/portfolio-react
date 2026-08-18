@@ -1,31 +1,44 @@
+import Reveal from "../components/Reveal";
+
 function About() {
     return (
         <section
             id="about"
             className="section standard-section"
         >
-            <div className="section-number">
+            <span className="section-number">
                 02
-            </div>
+            </span>
 
             <div className="section-content">
-                <h2>
-                    About
-                </h2>
 
-                <div className="section-text">
-                    <p>
-                        I am a fresh graduate in Informatics Engineering
-                        with an interest in web development, full-stack
-                        development, and IT support.
-                    </p>
+                <Reveal>
+                    <h2>About</h2>
+                </Reveal>
 
-                    <p>
-                        I enjoy understanding how software, systems,
-                        and infrastructure work together and prefer
-                        learning through practical projects.
-                    </p>
-                </div>
+                <Reveal delay={180}>
+                    <div className="section-text">
+                        <p>
+                            I am an Informatics Engineering graduate
+                            interested in building practical web
+                            applications and understanding the systems
+                            behind them.
+                        </p>
+
+                        <p>
+                            My interests span frontend development,
+                            backend development, databases, operating
+                            systems, and computer troubleshooting.
+                        </p>
+
+                        <p>
+                            I enjoy learning through real projects,
+                            experimenting with technology, and solving
+                            technical problems directly.
+                        </p>
+                    </div>
+                </Reveal>
+
             </div>
         </section>
     );

@@ -11,6 +11,24 @@ function GlobalVisual() {
 
         /*
         ============================================
+        DEVICE / PERFORMANCE
+        ============================================
+        */
+
+        const isMobile = window.innerWidth <= 768;
+
+        const getPixelRatio = () => {
+            const mobile = window.innerWidth <= 768;
+
+            return Math.min(
+                window.devicePixelRatio,
+                mobile ? 1.5 : 2
+            );
+        };
+
+
+        /*
+        ============================================
         SCENE
         ============================================
         */
@@ -26,6 +44,7 @@ function GlobalVisual() {
 
         camera.position.set(0, 0, 8);
 
+
         /*
         ============================================
         RENDERER
@@ -35,10 +54,11 @@ function GlobalVisual() {
         const renderer = new THREE.WebGLRenderer({
             antialias: true,
             alpha: true,
+            powerPreference: "high-performance",
         });
 
         renderer.setPixelRatio(
-            Math.min(window.devicePixelRatio, 2)
+            getPixelRatio()
         );
 
         renderer.setSize(
@@ -46,9 +66,29 @@ function GlobalVisual() {
             window.innerHeight
         );
 
-        renderer.setClearColor(0x000000, 0);
+        renderer.setClearColor(
+            0x000000,
+            0
+        );
 
-        container.appendChild(renderer.domElement);
+        container.appendChild(
+            renderer.domElement
+        );
+
+
+        /*
+        ============================================
+        VISUAL READY / FADE IN
+        ============================================
+        */
+
+        const readyFrameId =
+            requestAnimationFrame(() => {
+                container.classList.add(
+                    "global-visual-ready"
+                );
+            });
+
 
         /*
         ============================================
@@ -56,11 +96,13 @@ function GlobalVisual() {
         ============================================
         */
 
-        const system = new THREE.Group();
+        const system =
+            new THREE.Group();
 
         system.position.x = 1.15;
 
         scene.add(system);
+
 
         /*
         ============================================
@@ -79,16 +121,17 @@ function GlobalVisual() {
             opacity,
             speed,
         }) {
-            const curve = new THREE.EllipseCurve(
-                0,
-                0,
-                radiusX,
-                radiusY,
-                0,
-                Math.PI * 2,
-                false,
-                0
-            );
+            const curve =
+                new THREE.EllipseCurve(
+                    0,
+                    0,
+                    radiusX,
+                    radiusY,
+                    0,
+                    Math.PI * 2,
+                    false,
+                    0
+                );
 
             const points = curve
                 .getPoints(220)
@@ -102,9 +145,8 @@ function GlobalVisual() {
                 );
 
             const geometry =
-                new THREE.BufferGeometry().setFromPoints(
-                    points
-                );
+                new THREE.BufferGeometry()
+                    .setFromPoints(points);
 
             const material =
                 new THREE.LineBasicMaterial({
@@ -113,10 +155,11 @@ function GlobalVisual() {
                     opacity,
                 });
 
-            const orbit = new THREE.LineLoop(
-                geometry,
-                material
-            );
+            const orbit =
+                new THREE.LineLoop(
+                    geometry,
+                    material
+                );
 
             orbit.rotation.set(
                 rotationX,
@@ -128,7 +171,6 @@ function GlobalVisual() {
                 baseX: rotationX,
                 baseY: rotationY,
                 baseZ: rotationZ,
-
                 speed,
 
                 phase:
@@ -141,6 +183,7 @@ function GlobalVisual() {
 
             system.add(orbit);
         }
+
 
         /*
         ============================================
@@ -228,6 +271,7 @@ function GlobalVisual() {
             speed: -0.25,
         });
 
+
         /*
         ============================================
         OUTER CORE
@@ -259,6 +303,7 @@ function GlobalVisual() {
             );
 
         system.add(core);
+
 
         /*
         ============================================
@@ -292,9 +337,10 @@ function GlobalVisual() {
 
         system.add(innerCore);
 
+
         /*
         ============================================
-        CENTRAL POINT
+        CENTER POINT
         ============================================
         */
 
@@ -318,13 +364,20 @@ function GlobalVisual() {
 
         system.add(centerPoint);
 
+
         /*
         ============================================
-        PARTICLE CLOUD
+        PARTICLES
+
+        Desktop : 1800
+        Mobile  : 900
         ============================================
         */
 
-        const particleCount = 1800;
+        const particleCount =
+            isMobile
+                ? 900
+                : 1800;
 
         const particlePositions =
             new Float32Array(
@@ -340,8 +393,7 @@ function GlobalVisual() {
 
             const radius =
                 2.3 +
-                Math.random() *
-                    4;
+                Math.random() * 4;
 
             const theta =
                 Math.random() *
@@ -402,13 +454,20 @@ function GlobalVisual() {
 
         system.add(particles);
 
+
         /*
         ============================================
         BACKGROUND STARS
+
+        Desktop : 1100
+        Mobile  : 550
         ============================================
         */
 
-        const starCount = 1100;
+        const starCount =
+            isMobile
+                ? 550
+                : 1100;
 
         const starPositions =
             new Float32Array(
@@ -467,6 +526,7 @@ function GlobalVisual() {
 
         scene.add(stars);
 
+
         /*
         ============================================
         MOUSE
@@ -507,8 +567,12 @@ function GlobalVisual() {
 
         window.addEventListener(
             "mousemove",
-            handleMouseMove
+            handleMouseMove,
+            {
+                passive: true,
+            }
         );
+
 
         /*
         ============================================
@@ -521,7 +585,8 @@ function GlobalVisual() {
 
         const handleScroll = () => {
             const maxScroll =
-                document.documentElement
+                document
+                    .documentElement
                     .scrollHeight -
                 window.innerHeight;
 
@@ -534,10 +599,14 @@ function GlobalVisual() {
 
         window.addEventListener(
             "scroll",
-            handleScroll
+            handleScroll,
+            {
+                passive: true,
+            }
         );
 
         handleScroll();
+
 
         /*
         ============================================
@@ -558,10 +627,7 @@ function GlobalVisual() {
             );
 
             renderer.setPixelRatio(
-                Math.min(
-                    window.devicePixelRatio,
-                    2
-                )
+                getPixelRatio()
             );
         };
 
@@ -569,6 +635,32 @@ function GlobalVisual() {
             "resize",
             handleResize
         );
+
+
+        /*
+        ============================================
+        PAGE VISIBILITY
+
+        Tidak perlu render ketika tab tidak aktif.
+        ============================================
+        */
+
+        let pageVisible =
+            document.visibilityState ===
+            "visible";
+
+        const handleVisibilityChange =
+            () => {
+                pageVisible =
+                    document.visibilityState ===
+                    "visible";
+            };
+
+        document.addEventListener(
+            "visibilitychange",
+            handleVisibilityChange
+        );
+
 
         /*
         ============================================
@@ -578,12 +670,17 @@ function GlobalVisual() {
 
         renderer.setAnimationLoop(
             (time) => {
+                if (!pageVisible) return;
+
                 const elapsed =
                     time * 0.001;
 
+
                 /*
-                 * Smooth cursor
-                 */
+                -----------------------------
+                SMOOTH MOUSE
+                -----------------------------
+                */
 
                 mouse.x +=
                     (
@@ -599,9 +696,12 @@ function GlobalVisual() {
                     ) *
                     0.045;
 
+
                 /*
-                 * Smooth scroll
-                 */
+                -----------------------------
+                SMOOTH SCROLL
+                -----------------------------
+                */
 
                 scroll +=
                     (
@@ -610,9 +710,12 @@ function GlobalVisual() {
                     ) *
                     0.035;
 
+
                 /*
-                 * GLOBAL ROTATION
-                 */
+                -----------------------------
+                SYSTEM ROTATION
+                -----------------------------
+                */
 
                 system.rotation.y =
                     elapsed * 0.075 +
@@ -628,26 +731,28 @@ function GlobalVisual() {
                 system.rotation.z =
                     scroll * 0.2;
 
+
                 /*
-                 * GLOBAL POSITION
-                 */
+                -----------------------------
+                SYSTEM POSITION
+                -----------------------------
+                */
 
                 system.position.x =
                     1.15 +
-                    mouse.x *
-                        0.18 -
-                    scroll *
-                        0.35;
+                    mouse.x * 0.18 -
+                    scroll * 0.35;
 
                 system.position.y =
-                    mouse.y *
-                        0.12 -
-                    scroll *
-                        0.12;
+                    mouse.y * 0.12 -
+                    scroll * 0.12;
+
 
                 /*
-                 * BREATHING
-                 */
+                -----------------------------
+                BREATHING
+                -----------------------------
+                */
 
                 const breathing =
                     1 +
@@ -655,16 +760,18 @@ function GlobalVisual() {
                         elapsed * 0.9
                     ) *
                         0.025 +
-                    scroll *
-                        0.08;
+                    scroll * 0.08;
 
                 system.scale.setScalar(
                     breathing
                 );
 
+
                 /*
-                 * ORBITS
-                 */
+                -----------------------------
+                ORBITS
+                -----------------------------
+                */
 
                 orbitLines.forEach(
                     (
@@ -703,11 +810,6 @@ function GlobalVisual() {
                             scroll *
                                 0.28;
 
-                        /*
-                         * Each ring breathes
-                         * slightly differently
-                         */
-
                         const scale =
                             1 +
                             Math.sin(
@@ -717,15 +819,19 @@ function GlobalVisual() {
                             ) *
                                 0.02;
 
-                        orbit.scale.setScalar(
-                            scale
-                        );
+                        orbit.scale
+                            .setScalar(
+                                scale
+                            );
                     }
                 );
 
+
                 /*
-                 * CORE
-                 */
+                -----------------------------
+                CORE
+                -----------------------------
+                */
 
                 core.rotation.x =
                     elapsed * 0.21;
@@ -745,9 +851,12 @@ function GlobalVisual() {
                 innerCore.rotation.z =
                     elapsed * 0.12;
 
+
                 /*
-                 * PARTICLES
-                 */
+                -----------------------------
+                PARTICLES
+                -----------------------------
+                */
 
                 particles.rotation.y =
                     elapsed * 0.025;
@@ -756,9 +865,12 @@ function GlobalVisual() {
                     elapsed * 0.009 +
                     scroll * 0.12;
 
+
                 /*
-                 * STARS
-                 */
+                -----------------------------
+                STARS
+                -----------------------------
+                */
 
                 stars.rotation.y =
                     -elapsed * 0.004;
@@ -766,9 +878,12 @@ function GlobalVisual() {
                 stars.rotation.x =
                     scroll * 0.05;
 
+
                 /*
-                 * CAMERA PARALLAX
-                 */
+                -----------------------------
+                CAMERA PARALLAX
+                -----------------------------
+                */
 
                 camera.position.x =
                     mouse.x * 0.3;
@@ -783,10 +898,19 @@ function GlobalVisual() {
                 camera.lookAt(
                     system.position.x *
                         0.12,
+
                     system.position.y *
                         0.1,
+
                     0
                 );
+
+
+                /*
+                -----------------------------
+                RENDER
+                -----------------------------
+                */
 
                 renderer.render(
                     scene,
@@ -795,6 +919,7 @@ function GlobalVisual() {
             }
         );
 
+
         /*
         ============================================
         CLEANUP
@@ -802,6 +927,14 @@ function GlobalVisual() {
         */
 
         return () => {
+            cancelAnimationFrame(
+                readyFrameId
+            );
+
+            container.classList.remove(
+                "global-visual-ready"
+            );
+
             renderer.setAnimationLoop(
                 null
             );
@@ -821,12 +954,25 @@ function GlobalVisual() {
                 handleResize
             );
 
+            document.removeEventListener(
+                "visibilitychange",
+                handleVisibilityChange
+            );
+
+
+            /*
+            -----------------------------
+            DISPOSE THREE OBJECTS
+            -----------------------------
+            */
+
             scene.traverse(
                 (object) => {
                     if (
                         object.geometry
                     ) {
-                        object.geometry.dispose();
+                        object.geometry
+                            .dispose();
                     }
 
                     if (
@@ -844,13 +990,21 @@ function GlobalVisual() {
                                     material.dispose()
                             );
                         } else {
-                            object.material.dispose();
+                            object.material
+                                .dispose();
                         }
                     }
                 }
             );
 
             renderer.dispose();
+
+
+            /*
+            -----------------------------
+            REMOVE CANVAS
+            -----------------------------
+            */
 
             if (
                 renderer.domElement
