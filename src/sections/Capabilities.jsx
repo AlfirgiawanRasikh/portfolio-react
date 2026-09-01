@@ -3,12 +3,14 @@ import Reveal from "../components/Reveal";
 const capabilities = [
     {
         number: "01",
-        title: "Frontend Development & Tooling",
+        title: "Frontend Development",
         skills: [
             "React",
+            "Next.js",
+            "TypeScript",
             "JavaScript",
+            "Tailwind CSS",
             "HTML / CSS",
-            "Vite",
             "Three.js",
         ],
     },
@@ -23,7 +25,8 @@ const capabilities = [
             "FastAPI",
             "PHP",
             "REST API",
-            "API Integration",
+            "Swagger / OpenAPI",
+            "Postman",
         ],
     },
 
@@ -34,6 +37,7 @@ const capabilities = [
             "PostgreSQL",
             "MySQL",
             "SQL",
+            "Prisma ORM",
             "PostgreSQL JSONB",
             "Schema Migrations",
         ],
@@ -41,11 +45,12 @@ const capabilities = [
 
     {
         number: "04",
-        title: "Authentication & API Logic",
+        title: "Authentication & Application Logic",
         skills: [
+            "Better Auth",
             "JWT Authentication",
             "bcrypt",
-            "CORS",
+            "Authorization",
             "Validation",
             "Filtering & Pagination",
             "Data Normalization",
@@ -57,7 +62,7 @@ const capabilities = [
         title: "Testing & Development Workflow",
         skills: [
             "pytest",
-            "HTTPX",
+            "Automated Testing",
             "Git",
             "GitHub",
             "Branching & Pull Requests",
@@ -67,10 +72,12 @@ const capabilities = [
 
     {
         number: "06",
-        title: "Systems & IT Support",
+        title: "Systems, Linux & IT Support",
         skills: [
             "Windows",
             "Linux",
+            "Home Server",
+            "System Monitoring",
             "PC Building",
             "Hardware Troubleshooting",
             "Computer Maintenance",
@@ -91,7 +98,9 @@ function Capabilities() {
 
             <div className="section-content">
                 <Reveal>
-                    <h2>Capabilities</h2>
+                    <h2>
+                        Capabilities
+                    </h2>
                 </Reveal>
 
                 <Reveal delay={120}>
@@ -136,8 +145,9 @@ function Capabilities() {
                         </span>
 
                         <p>
-                            Java · OOP · OpenCV · BeautifulSoup4 · Psycopg ·
-                            PhpSpreadsheet · Apache · MariaDB · phpMyAdmin
+                            Java · OOP · Vite · React Router · HTTPX ·
+                            OpenCV · BeautifulSoup4 · Psycopg · Apache ·
+                            MariaDB · phpMyAdmin
                         </p>
                     </div>
                 </Reveal>
