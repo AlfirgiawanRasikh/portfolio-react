@@ -20,6 +20,25 @@ const projects = [
 
         link: "https://github.com/AlfirgiawanRasikh/media-monitoring-assessment",
     },
+    {
+        number: "02",
+        title: "FORME",
+
+        description:
+            "Creative studio portfolio focused on editorial layouts, refined motion, responsive design, and interactive brand case studies across fashion, music, hospitality, and furniture.",
+
+        technologies: [
+            "Next.js",
+            "TypeScript",
+            "Tailwind CSS",
+            "Framer Motion",
+        ],
+
+        year: "2026",
+        type: "Creative Frontend",
+
+        link: "https://github.com/AlfirgiawanRasikh/forme",
+    },
 ];
 
 function Projects() {
