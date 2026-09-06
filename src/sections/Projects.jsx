@@ -18,7 +18,8 @@ const projects = [
         year: "2026",
         type: "Backend API",
 
-        link: "https://github.com/AlfirgiawanRasikh/media-monitoring-assessment",
+        repository:
+            "https://github.com/AlfirgiawanRasikh/media-monitoring-assessment",
     },
     {
         number: "02",
@@ -37,7 +38,9 @@ const projects = [
         year: "2026",
         type: "Creative Frontend",
 
-        link: "https://github.com/AlfirgiawanRasikh/forme",
+        live: "https://forme-drab.vercel.app/",
+        repository:
+            "https://github.com/AlfirgiawanRasikh/forme",
     },
 ];
 
@@ -74,13 +77,7 @@ function Projects() {
                     {projects.map((project) => (
                         <Reveal key={project.number}>
 
-                            <a
-                                href={project.link}
-                                target="_blank"
-                                rel="noreferrer"
-                                className="project-item"
-                                aria-label={`View ${project.title} on GitHub`}
-                            >
+                            <article className="project-item">
 
                                 <div className="project-top">
 
@@ -122,24 +119,53 @@ function Projects() {
 
                                     </div>
 
-                                    <div className="project-action">
+                                    <div className="project-actions">
 
-                                        <span className="project-view">
-                                            View repository
-                                        </span>
+                                        {project.live && (
+                                            <a
+                                                href={project.live}
+                                                target="_blank"
+                                                rel="noreferrer"
+                                                className="project-link"
+                                                aria-label={`View ${project.title} live site`}
+                                            >
+                                                <span>
+                                                    Live site
+                                                </span>
 
-                                        <span
-                                            className="project-arrow"
-                                            aria-hidden="true"
+                                                <span
+                                                    aria-hidden="true"
+                                                    className="project-arrow"
+                                                >
+                                                    ↗
+                                                </span>
+                                            </a>
+                                        )}
+
+                                        <a
+                                            href={project.repository}
+                                            target="_blank"
+                                            rel="noreferrer"
+                                            className="project-link"
+                                            aria-label={`View ${project.title} repository on GitHub`}
                                         >
-                                            ↗
-                                        </span>
+                                            <span>
+                                                Repository
+                                            </span>
+
+                                            <span
+                                                aria-hidden="true"
+                                                className="project-arrow"
+                                            >
+                                                ↗
+                                            </span>
+                                        </a>
 
                                     </div>
 
                                 </div>
 
-                            </a>
+                            </article>
 
                         </Reveal>
                     ))}
