@@ -99,7 +99,7 @@ function Capabilities() {
             <div className="section-content">
                 <Reveal>
                     <h2>
-                        Capabilities
+                        Skills
                     </h2>
                 </Reveal>
 

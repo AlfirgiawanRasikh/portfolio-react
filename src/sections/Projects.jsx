@@ -42,6 +42,27 @@ const projects = [
         repository:
             "https://github.com/AlfirgiawanRasikh/forme",
     },
+    {
+        number: "03",
+        title: "MORI",
+
+        description:
+            "Mental wellness product concept designed to reduce decision fatigue through guided emotional check-ins, contextual recommendations, grounding exercises, and reflective patterns.",
+
+        technologies: [
+            "Next.js",
+            "TypeScript",
+            "Tailwind CSS",
+            "GSAP",
+        ],
+
+        year: "2026",
+        type: "Product Frontend",
+
+        live: "https://mori-alpha.vercel.app/",
+        repository:
+            "https://github.com/AlfirgiawanRasikh/MORI",
+    },
 ];
 
 function Projects() {
@@ -59,7 +80,7 @@ function Projects() {
                 <div className="projects-header">
                     <Reveal>
                         <h2>
-                            Selected Work
+                            Projects
                         </h2>
                     </Reveal>
 
