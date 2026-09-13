@@ -1,4 +1,7 @@
+import { useState } from "react";
 import Reveal from "../components/Reveal";
+
+const PROJECTS_PER_PAGE = 5;
 
 const projects = [
     {
@@ -83,9 +86,70 @@ const projects = [
         repository:
             "https://github.com/AlfirgiawanRasikh/sistem-pakar-hardware",
     },
+    {
+        number: "05",
+        title: "Self-Hosted Home Server Infrastructure",
+
+        description:
+            "Production-oriented bare-metal Linux infrastructure built from repurposed hardware for hosting applications, APIs, databases, private storage, automated deployments, encrypted off-site backups, monitoring, and AI-assisted server operations.",
+
+        technologies: [
+            "Linux",
+            "Nginx",
+            "PostgreSQL",
+            "Cloudflare",
+            "Tailscale",
+            "systemd",
+            "Hermes Agent",
+        ],
+
+        year: "2026",
+        type: "Infrastructure / DevOps",
+
+        caseStudy: "/projects/home-server",
+    },
 ];
 
 function Projects() {
+    const [currentPage, setCurrentPage] = useState(1);
+
+    const totalPages = Math.max(
+        1,
+        Math.ceil(projects.length / PROJECTS_PER_PAGE)
+    );
+
+    const startIndex =
+        (currentPage - 1) * PROJECTS_PER_PAGE;
+
+    const visibleProjects = projects.slice(
+        startIndex,
+        startIndex + PROJECTS_PER_PAGE
+    );
+
+    const goToPage = (nextPage) => {
+        if (
+            nextPage < 1 ||
+            nextPage > totalPages ||
+            nextPage === currentPage
+        ) {
+            return;
+        }
+
+        setCurrentPage(nextPage);
+
+        requestAnimationFrame(() => {
+            document
+                .getElementById("projects")
+                ?.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start",
+                });
+        });
+    };
+
+    const formatPage = (page) =>
+        String(page).padStart(2, "0");
+
     return (
         <section
             id="projects"
@@ -113,7 +177,7 @@ function Projects() {
                 </div>
 
                 <div className="projects-list">
-                    {projects.map((project) => (
+                    {visibleProjects.map((project) => (
                         <Reveal key={project.number}>
                             <article className="project-item">
                                 <div className="project-top">
@@ -173,29 +237,100 @@ function Projects() {
                                             </a>
                                         )}
 
-                                        <a
-                                            href={project.repository}
-                                            target="_blank"
-                                            rel="noreferrer"
-                                            className="project-link"
-                                            aria-label={`View ${project.title} repository on GitHub`}
-                                        >
-                                            <span>
-                                                Repository
-                                            </span>
-
-                                            <span
-                                                aria-hidden="true"
-                                                className="project-arrow"
+                                        {project.repository && (
+                                            <a
+                                                href={project.repository}
+                                                target="_blank"
+                                                rel="noreferrer"
+                                                className="project-link"
+                                                aria-label={`View ${project.title} repository on GitHub`}
                                             >
-                                                ↗
-                                            </span>
-                                        </a>
+                                                <span>
+                                                    Repository
+                                                </span>
+
+                                                <span
+                                                    aria-hidden="true"
+                                                    className="project-arrow"
+                                                >
+                                                    ↗
+                                                </span>
+                                            </a>
+                                        )}
+
+                                        {project.caseStudy && (
+                                            <a
+                                                href={project.caseStudy}
+                                                className="project-link"
+                                                aria-label={`View ${project.title} case study`}
+                                            >
+                                                <span>
+                                                    Case study
+                                                </span>
+
+                                                <span
+                                                    aria-hidden="true"
+                                                    className="project-arrow"
+                                                >
+                                                    ↗
+                                                </span>
+                                            </a>
+                                        )}
                                     </div>
                                 </div>
                             </article>
                         </Reveal>
                     ))}
+                </div>
+
+                <div
+                    className="projects-pagination"
+                    aria-label="Project pages"
+                >
+                    <button
+                        type="button"
+                        className="projects-pagination-button projects-pagination-previous"
+                        onClick={() => goToPage(currentPage - 1)}
+                        disabled={currentPage === 1}
+                    >
+                        <span
+                            aria-hidden="true"
+                            className="projects-pagination-arrow"
+                        >
+                            ←
+                        </span>
+
+                        <span>
+                            Previous
+                        </span>
+                    </button>
+
+                    <span
+                        className="projects-pagination-status"
+                        aria-live="polite"
+                    >
+                        {formatPage(currentPage)}
+                        <span>/</span>
+                        {formatPage(totalPages)}
+                    </span>
+
+                    <button
+                        type="button"
+                        className="projects-pagination-button projects-pagination-next"
+                        onClick={() => goToPage(currentPage + 1)}
+                        disabled={currentPage === totalPages}
+                    >
+                        <span>
+                            Next
+                        </span>
+
+                        <span
+                            aria-hidden="true"
+                            className="projects-pagination-arrow"
+                        >
+                            →
+                        </span>
+                    </button>
                 </div>
             </div>
         </section>

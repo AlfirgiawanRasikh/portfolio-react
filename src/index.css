@@ -1083,6 +1083,127 @@ canvas {
 
 
 /* =========================================================
+   PROJECTS PAGINATION
+========================================================= */
+
+.projects-pagination {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+
+    width: 100%;
+    padding-top: 30px;
+}
+
+.projects-pagination-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+
+    width: fit-content;
+
+    border: 0;
+    padding: 0;
+
+    background: transparent;
+    cursor: pointer;
+
+    font-size: 9px;
+    font-weight: 400;
+    letter-spacing: 0.11em;
+    text-transform: uppercase;
+
+    color: rgba(255, 255, 255, 0.42);
+
+    transition:
+        color 0.3s ease,
+        transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+        opacity 0.3s ease;
+}
+
+.projects-pagination-previous {
+    justify-self: start;
+}
+
+.projects-pagination-next {
+    justify-self: end;
+}
+
+.projects-pagination-button:hover:not(:disabled) {
+    color: rgba(255, 255, 255, 0.95);
+}
+
+.projects-pagination-previous:hover:not(:disabled) {
+    transform: translateX(-3px);
+}
+
+.projects-pagination-next:hover:not(:disabled) {
+    transform: translateX(3px);
+}
+
+.projects-pagination-button:disabled {
+    cursor: default;
+    opacity: 0.2;
+}
+
+.projects-pagination-arrow {
+    display: inline-block;
+
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 1;
+
+    transition:
+        color 0.3s ease,
+        transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.projects-pagination-previous:hover:not(:disabled)
+.projects-pagination-arrow {
+    transform: translateX(-3px);
+}
+
+.projects-pagination-next:hover:not(:disabled)
+.projects-pagination-arrow {
+    transform: translateX(3px);
+}
+
+.projects-pagination-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    font-size: 9px;
+    letter-spacing: 0.13em;
+
+    color: rgba(255, 255, 255, 0.32);
+}
+
+.projects-pagination-status span {
+    color: rgba(255, 255, 255, 0.14);
+}
+
+@media (max-width: 600px) {
+    .projects-pagination {
+        padding-top: 26px;
+    }
+
+    .projects-pagination-button,
+    .projects-pagination-status {
+        font-size: 8px;
+    }
+
+    .projects-pagination-button {
+        gap: 7px;
+    }
+
+    .projects-pagination-arrow {
+        font-size: 14px;
+    }
+}
+
+
+/* =========================================================
    CONTACT
 ========================================================= */
 
@@ -1684,5 +1805,573 @@ canvas {
 
     .contact-socials {
         gap: 22px;
+    }
+}
+
+/* =========================================================
+   HOME SERVER CASE STUDY
+========================================================= */
+
+.home-server-back {
+    position: absolute;
+    top: 34px;
+    left: 42px;
+    z-index: 10;
+
+    justify-content: flex-start;
+
+    color: rgba(255, 255, 255, 0.42);
+}
+
+.home-server-back:hover {
+    transform: translateX(-3px);
+}
+
+.home-server-back .project-arrow {
+    font-size: 14px;
+
+    transform: none;
+}
+
+.home-server-back:hover .project-arrow {
+    transform: translateX(-3px);
+
+    color: rgba(255, 255, 255, 0.95);
+}
+
+.architecture-map {
+    width: 100%;
+    margin-bottom: 80px;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.architecture-lane {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    gap: 40px;
+
+    padding: 30px 0;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.architecture-lane-label {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+
+    padding-top: 3px;
+}
+
+.architecture-lane-label span {
+    font-size: 9px;
+    letter-spacing: 0.13em;
+
+    color: rgba(255, 255, 255, 0.28);
+}
+
+.architecture-lane-label strong {
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.11em;
+    text-transform: uppercase;
+
+    color: rgba(255, 255, 255, 0.52);
+}
+
+.architecture-flow {
+    display: flex;
+    align-items: stretch;
+    gap: 12px;
+
+    min-width: 0;
+}
+
+.architecture-node {
+    flex: 1 1 0;
+    min-width: 0;
+    min-height: 92px;
+
+    padding: 18px 20px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 22px;
+
+    border: 1px solid rgba(255, 255, 255, 0.1);
+
+    transition:
+        border-color 0.3s ease,
+        background 0.3s ease;
+}
+
+.architecture-node:hover {
+    border-color: rgba(255, 255, 255, 0.28);
+    background: rgba(255, 255, 255, 0.008);
+}
+
+.architecture-node-wide {
+    flex: 1.35 1 0;
+}
+
+.architecture-node span {
+    font-size: 8px;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+
+    color: rgba(255, 255, 255, 0.25);
+}
+
+.architecture-node strong {
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 1.45;
+
+    color: rgba(255, 255, 255, 0.72);
+}
+
+.architecture-arrow {
+    align-self: center;
+
+    flex: 0 0 auto;
+
+    font-size: 14px;
+
+    color: rgba(255, 255, 255, 0.22);
+}
+
+.architecture-divider {
+    align-self: center;
+
+    flex: 0 0 1px;
+
+    width: 1px;
+    height: 38px;
+
+    background: rgba(255, 255, 255, 0.1);
+}
+
+
+.case-study-visual {
+    width: 100%;
+}
+
+.case-study-visual-frame {
+    width: 100%;
+
+    padding: 10px;
+
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.01);
+}
+
+.case-study-visual-frame img {
+    width: 100%;
+    height: auto;
+
+    object-fit: cover;
+}
+
+.case-study-visual-caption {
+    display: grid;
+    grid-template-columns: 180px minmax(0, 1fr);
+    gap: 40px;
+
+    padding: 20px 0 0;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.case-study-visual-caption span {
+    font-size: 9px;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+
+    color: rgba(255, 255, 255, 0.3);
+}
+
+.case-study-visual-caption p {
+    max-width: 520px;
+
+    font-size: 12px;
+    line-height: 1.75;
+
+    color: rgba(255, 255, 255, 0.45);
+}
+
+@media (max-width: 900px) {
+    .case-study-visual-caption {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+}
+
+@media (max-width: 600px) {
+    .case-study-visual-frame {
+        padding: 5px;
+    }
+
+    .case-study-visual-caption {
+        padding-top: 16px;
+    }
+
+    .case-study-visual-caption span {
+        font-size: 8px;
+    }
+
+    .case-study-visual-caption p {
+        font-size: 11px;
+    }
+}
+
+.case-study-agent-visual {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(300px, 0.55fr);
+    gap: 90px;
+    align-items: start;
+
+    width: 100%;
+    margin-top: 90px;
+    padding-top: 30px;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.case-study-agent-copy {
+    max-width: 620px;
+}
+
+.case-study-agent-label {
+    display: block;
+
+    margin-bottom: 34px;
+
+    font-size: 9px;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+
+    color: rgba(255, 255, 255, 0.3);
+}
+
+.case-study-agent-copy h3 {
+    max-width: 620px;
+    margin-bottom: 28px;
+
+    font-size: clamp(30px, 3.2vw, 54px);
+    font-weight: 300;
+    line-height: 1.05;
+    letter-spacing: -0.035em;
+
+    color: rgba(255, 255, 255, 0.88);
+}
+
+.case-study-agent-copy > p {
+    max-width: 560px;
+
+    font-size: 13px;
+    line-height: 1.75;
+
+    color: rgba(255, 255, 255, 0.43);
+}
+
+.case-study-agent-frame {
+    justify-self: end;
+
+    width: min(100%, 420px);
+    padding: 8px;
+
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.01);
+}
+
+.case-study-agent-frame img {
+    width: 100%;
+    height: auto;
+
+    object-fit: contain;
+}
+
+@media (max-width: 900px) {
+    .case-study-agent-visual {
+        grid-template-columns: 1fr;
+        gap: 45px;
+
+        margin-top: 70px;
+    }
+
+    .case-study-agent-frame {
+        justify-self: start;
+        width: min(100%, 390px);
+    }
+}
+
+@media (max-width: 600px) {
+    .case-study-agent-visual {
+        gap: 35px;
+
+        margin-top: 58px;
+        padding-top: 24px;
+    }
+
+    .case-study-agent-label {
+        margin-bottom: 24px;
+        font-size: 8px;
+    }
+
+    .case-study-agent-copy h3 {
+        margin-bottom: 22px;
+
+        font-size: 30px;
+        line-height: 1.05;
+    }
+
+    .case-study-agent-copy > p {
+        font-size: 12px;
+        line-height: 1.7;
+    }
+
+    .case-study-agent-frame {
+        width: min(100%, 360px);
+        padding: 5px;
+    }
+}
+
+.case-study-exit {
+    position: relative;
+
+    width: 100%;
+    padding: 70px 42px 80px;
+
+    border-bottom: 1px solid var(--line-soft);
+}
+
+.case-study-exit::before {
+    content: "";
+
+    position: absolute;
+    top: 0;
+    left: 42px;
+    right: 42px;
+
+    height: 1px;
+
+    background: rgba(255, 255, 255, 0.07);
+}
+
+.case-study-exit-inner {
+    width: min(100%, 1400px);
+    margin: 0 auto;
+}
+
+.case-study-exit-label {
+    display: block;
+
+    margin-bottom: 34px;
+
+    font-size: 9px;
+    font-weight: 400;
+    letter-spacing: 0.16em;
+
+    color: rgba(255, 255, 255, 0.3);
+}
+
+.case-study-exit-link {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: end;
+    gap: 30px;
+
+    width: 100%;
+    padding: 0 0 28px;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+
+    font-size: clamp(48px, 6.8vw, 104px);
+    font-weight: 300;
+    line-height: 0.95;
+    letter-spacing: -0.035em;
+
+    color: rgba(255, 255, 255, 0.9);
+
+    transition:
+        color 0.3s ease,
+        border-color 0.3s ease,
+        padding-left 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.case-study-exit-link:hover {
+    padding-left: 10px;
+
+    border-color: rgba(255, 255, 255, 0.4);
+    color: #ffffff;
+}
+
+.case-study-exit-arrow {
+    padding-bottom: 6px;
+
+    font-size: clamp(34px, 4vw, 64px);
+    font-weight: 300;
+    line-height: 1;
+
+    color: rgba(255, 255, 255, 0.3);
+
+    transition:
+        color 0.3s ease,
+        transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.case-study-exit-link:hover .case-study-exit-arrow {
+    color: rgba(255, 255, 255, 0.9);
+    transform: translate(4px, -4px);
+}
+
+@media (max-width: 1100px) {
+    .case-study-exit {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+
+    .case-study-exit::before {
+        left: 30px;
+        right: 30px;
+    }
+}
+
+@media (max-width: 900px) {
+    .case-study-exit {
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+
+    .case-study-exit::before {
+        left: 24px;
+        right: 24px;
+    }
+}
+
+@media (max-width: 600px) {
+    .case-study-exit {
+        padding: 60px 18px 70px;
+    }
+
+    .case-study-exit::before {
+        left: 18px;
+        right: 18px;
+    }
+
+    .case-study-exit-label {
+        margin-bottom: 28px;
+        font-size: 8px;
+    }
+
+    .case-study-exit-link {
+        gap: 18px;
+        padding-bottom: 22px;
+
+        font-size: clamp(40px, 13vw, 58px);
+        line-height: 0.96;
+    }
+
+    .case-study-exit-link:hover {
+        padding-left: 0;
+    }
+
+    .case-study-exit-arrow {
+        padding-bottom: 4px;
+        font-size: 32px;
+    }
+}
+
+@media (max-width: 1100px) {
+    .home-server-back {
+        left: 30px;
+    }
+
+    .architecture-lane {
+        grid-template-columns: 110px 1fr;
+        gap: 28px;
+    }
+
+    .architecture-flow {
+        gap: 9px;
+    }
+
+    .architecture-node {
+        padding: 16px;
+    }
+}
+
+@media (max-width: 900px) {
+    .home-server-back {
+        top: 28px;
+        left: 24px;
+    }
+
+    .architecture-map {
+        margin-bottom: 60px;
+    }
+
+    .architecture-lane {
+        grid-template-columns: 1fr;
+        gap: 22px;
+
+        padding: 28px 0;
+    }
+
+    .architecture-lane-label {
+        flex-direction: row;
+        align-items: center;
+        gap: 14px;
+    }
+
+    .architecture-flow {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+    }
+
+    .architecture-arrow,
+    .architecture-divider {
+        display: none;
+    }
+
+    .architecture-node,
+    .architecture-node-wide {
+        min-height: 100px;
+    }
+}
+
+@media (max-width: 600px) {
+    .home-server-back {
+        top: 26px;
+        left: 18px;
+    }
+
+    .architecture-map {
+        margin-bottom: 48px;
+    }
+
+    .architecture-flow {
+        grid-template-columns: 1fr;
+    }
+
+    .architecture-node,
+    .architecture-node-wide {
+        min-height: auto;
+        padding: 16px 0 18px;
+
+        border-left: 0;
+        border-right: 0;
+        border-top: 0;
+    }
+
+    .architecture-node span {
+        font-size: 8px;
+    }
+
+    .architecture-node strong {
+        font-size: 12px;
     }
 }
