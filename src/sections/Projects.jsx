@@ -63,6 +63,26 @@ const projects = [
         repository:
             "https://github.com/AlfirgiawanRasikh/MORI",
     },
+    {
+        number: "04",
+        title: "Hardware Diagnosis Expert System",
+
+        description:
+            "Web-based expert system for diagnosing computer hardware problems from selected symptoms using rule-based diagnosis, with authentication, diagnosis history, administrative management, and PDF reporting.",
+
+        technologies: [
+            "PHP",
+            "MySQL",
+            "JavaScript",
+            "Dompdf",
+        ],
+
+        year: "2026",
+        type: "Expert System",
+
+        repository:
+            "https://github.com/AlfirgiawanRasikh/sistem-pakar-hardware",
+    },
 ];
 
 function Projects() {
@@ -76,7 +96,6 @@ function Projects() {
             </span>
 
             <div className="projects-wrapper">
-
                 <div className="projects-header">
                     <Reveal>
                         <h2>
@@ -94,14 +113,10 @@ function Projects() {
                 </div>
 
                 <div className="projects-list">
-
                     {projects.map((project) => (
                         <Reveal key={project.number}>
-
                             <article className="project-item">
-
                                 <div className="project-top">
-
                                     <span className="project-number">
                                         {project.number}
                                     </span>
@@ -113,17 +128,14 @@ function Projects() {
                                     <span className="project-year">
                                         {project.year}
                                     </span>
-
                                 </div>
 
                                 <div className="project-main">
-
                                     <h3>
                                         {project.title}
                                     </h3>
 
                                     <div className="project-info">
-
                                         <p>
                                             {project.description}
                                         </p>
@@ -137,11 +149,9 @@ function Projects() {
                                                 )
                                             )}
                                         </div>
-
                                     </div>
 
                                     <div className="project-actions">
-
                                         {project.live && (
                                             <a
                                                 href={project.live}
@@ -181,18 +191,12 @@ function Projects() {
                                                 ↗
                                             </span>
                                         </a>
-
                                     </div>
-
                                 </div>
-
                             </article>
-
                         </Reveal>
                     ))}
-
                 </div>
-
             </div>
         </section>
     );
