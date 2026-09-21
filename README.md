@@ -1,6 +1,6 @@
 # Alfirgiawan Rasikh Portfolio
 
-Personal portfolio website showcasing my experience, technical skills, selected projects, and hands-on work across web development, backend systems, infrastructure, and IT support.
+Personal portfolio website showcasing my experience, technical skills, projects, and hands-on work across full-stack development, backend systems, infrastructure, and IT support.
 
 ## Live Website
 
@@ -8,9 +8,9 @@ Personal portfolio website showcasing my experience, technical skills, selected 
 
 ## About
 
-I am an Informatics Engineering graduate interested in building practical web applications and understanding the systems behind them.
+I am an Informatics Engineering graduate building practical web applications and exploring the systems that support them.
 
-My work spans frontend development, backend development, databases, Linux, infrastructure, and computer troubleshooting. This portfolio brings together projects built through professional experience, independent development, technical exploration, and hands-on learning.
+My work spans frontend development, backend systems, databases, Linux infrastructure, and technical troubleshooting. I learn primarily through real projects, combining software development with hands-on experimentation and problem solving.
 
 ## Tech Stack
 
@@ -41,7 +41,8 @@ My work spans frontend development, backend development, databases, Linux, infra
 - Dedicated infrastructure case study
 - Responsive layouts across desktop, tablet, and mobile
 - Lazy-loaded Three.js visual
-- Open Graph and basic SEO metadata
+- Open Graph and SEO metadata
+- Sitemap and robots configuration
 - Accessible navigation and focus states
 
 ## Sections
@@ -60,28 +61,67 @@ Professional experience including my UI Full Stack Developer internship at PT At
 
 ### 04. Skills
 
-Technologies and technical areas I have worked with across frontend, backend, databases, authentication, testing, Linux, and IT support.
+Technologies and technical areas I have worked with across frontend development, backend systems, databases, authentication, testing, infrastructure, and IT support.
 
 ### 05. Projects
 
-A collection of projects demonstrating different areas of development.
+Projects demonstrating different areas of software development, infrastructure, and technical problem solving.
 
 Current projects include:
 
-- **Media Monitoring Backend API**  
-  Backend service built with Python, FastAPI, PostgreSQL, and pytest for ingesting, searching, filtering, and analyzing media mentions.
+#### 01. DeskOps
 
-- **FORME**  
-  Creative frontend project focused on editorial layouts, responsive design, motion, and interactive visual presentation.
+Role-aware IT operations platform for managing service tickets, asset inventory, SLA tracking, approval and resolution workflows, knowledge articles, notifications, audit logs, and operational reporting.
 
-- **MORI**  
-  Mental wellness product concept with guided emotional check-ins, contextual recommendations, grounding exercises, and reflective patterns.
+**Technologies:** Next.js, TypeScript, PostgreSQL, Prisma, Better Auth, Tailwind CSS
 
-- **Hardware Diagnosis Expert System**  
-  PHP and MySQL based expert system for diagnosing computer hardware problems using rule-based diagnosis.
+[Repository](https://github.com/AlfirgiawanRasikh/deskops)
 
-- **Self-Hosted Home Server Infrastructure**  
-  Bare-metal Linux infrastructure for hosting applications, APIs, PostgreSQL, private storage, monitoring, backups, and server operations.
+#### 02. Self-Hosted Home Server Infrastructure
+
+Production-oriented bare-metal Linux infrastructure built from repurposed hardware for hosting applications, APIs, databases, private storage, automated deployments, encrypted off-site backups, monitoring, and AI-assisted server operations.
+
+**Technologies:** Linux, Nginx, PostgreSQL, Cloudflare, Tailscale, systemd, Hermes Agent
+
+A dedicated case study is available inside the portfolio:
+
+```text
+/projects/home-server
+```
+
+#### 03. Media Monitoring Backend API
+
+Backend service for ingesting, searching, and analyzing media mentions with duplicate detection, data normalization, filtering, pagination, and aggregated statistics.
+
+**Technologies:** Python, FastAPI, PostgreSQL, pytest
+
+[Repository](https://github.com/AlfirgiawanRasikh/media-monitoring-assessment)
+
+#### 04. FORME
+
+Creative studio portfolio focused on editorial layouts, refined motion, responsive design, and interactive brand case studies across fashion, music, hospitality, and furniture.
+
+**Technologies:** Next.js, TypeScript, Tailwind CSS, Framer Motion
+
+[Live Site](https://forme-drab.vercel.app/)  
+[Repository](https://github.com/AlfirgiawanRasikh/forme)
+
+#### 05. MORI
+
+Mental wellness product concept designed to reduce decision fatigue through guided emotional check-ins, contextual recommendations, grounding exercises, and reflective patterns.
+
+**Technologies:** Next.js, TypeScript, Tailwind CSS, GSAP
+
+[Live Site](https://mori-alpha.vercel.app/)  
+[Repository](https://github.com/AlfirgiawanRasikh/MORI)
+
+#### 06. Hardware Diagnosis Expert System
+
+Web-based expert system for diagnosing computer hardware problems from selected symptoms using rule-based diagnosis, with authentication, diagnosis history, administrative management, and PDF reporting.
+
+**Technologies:** PHP, MySQL, JavaScript, Dompdf
+
+[Repository](https://github.com/AlfirgiawanRasikh/sistem-pakar-hardware)
 
 ### 06. Contact
 
@@ -89,7 +129,7 @@ Direct links to email, LinkedIn, and GitHub.
 
 ## Home Server Case Study
 
-The portfolio includes a dedicated case study for my self-hosted home server.
+The portfolio includes a dedicated case study documenting my self-hosted home server infrastructure.
 
 The infrastructure includes:
 
@@ -104,14 +144,10 @@ The infrastructure includes:
 - Server health monitoring
 - Telegram alerts
 - Encrypted off-site backups
-- GitHub-based deployment workflow
+- Automated deployment workflow
 - Hermes Agent for restricted AI-assisted server operations
 
-The case study is available at:
-
-```text
-/projects/home-server
-```
+The case study covers public and private networking, service management, monitoring, backup strategy, deployment automation, storage, and restricted AI-assisted operations.
 
 ## Project Structure
 

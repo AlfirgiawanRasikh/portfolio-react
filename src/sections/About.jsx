@@ -11,34 +11,33 @@ function About() {
             </span>
 
             <div className="section-content">
-
                 <Reveal>
-                    <h2>About</h2>
+                    <h2>
+                        About
+                    </h2>
                 </Reveal>
 
                 <Reveal delay={180}>
                     <div className="section-text">
                         <p>
                             I am an Informatics Engineering graduate
-                            interested in building practical web
-                            applications and understanding the systems
-                            behind them.
+                            building practical web applications and
+                            exploring the systems that support them.
                         </p>
 
                         <p>
-                            My interests span frontend development,
-                            backend development, databases, operating
-                            systems, and computer troubleshooting.
+                            My work spans frontend development, backend
+                            systems, databases, Linux infrastructure,
+                            and technical troubleshooting.
                         </p>
 
                         <p>
-                            I enjoy learning through real projects,
-                            experimenting with technology, and solving
-                            technical problems directly.
+                            I learn primarily through real projects,
+                            combining software development with hands-on
+                            experimentation and problem solving.
                         </p>
                     </div>
                 </Reveal>
-
             </div>
         </section>
     );
