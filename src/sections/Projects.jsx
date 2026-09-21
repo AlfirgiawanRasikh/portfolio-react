@@ -1,7 +1,4 @@
-import { useState } from "react";
 import Reveal from "../components/Reveal";
-
-const PROJECTS_PER_PAGE = 5;
 
 const projects = [
     {
@@ -111,45 +108,6 @@ const projects = [
 ];
 
 function Projects() {
-    const [currentPage, setCurrentPage] = useState(1);
-
-    const totalPages = Math.max(
-        1,
-        Math.ceil(projects.length / PROJECTS_PER_PAGE)
-    );
-
-    const startIndex =
-        (currentPage - 1) * PROJECTS_PER_PAGE;
-
-    const visibleProjects = projects.slice(
-        startIndex,
-        startIndex + PROJECTS_PER_PAGE
-    );
-
-    const goToPage = (nextPage) => {
-        if (
-            nextPage < 1 ||
-            nextPage > totalPages ||
-            nextPage === currentPage
-        ) {
-            return;
-        }
-
-        setCurrentPage(nextPage);
-
-        requestAnimationFrame(() => {
-            document
-                .getElementById("projects")
-                ?.scrollIntoView({
-                    behavior: "smooth",
-                    block: "start",
-                });
-        });
-    };
-
-    const formatPage = (page) =>
-        String(page).padStart(2, "0");
-
     return (
         <section
             id="projects"
@@ -177,7 +135,7 @@ function Projects() {
                 </div>
 
                 <div className="projects-list">
-                    {visibleProjects.map((project) => (
+                    {projects.map((project) => (
                         <Reveal key={project.number}>
                             <article className="project-item">
                                 <div className="project-top">
@@ -281,56 +239,6 @@ function Projects() {
                             </article>
                         </Reveal>
                     ))}
-                </div>
-
-                <div
-                    className="projects-pagination"
-                    aria-label="Project pages"
-                >
-                    <button
-                        type="button"
-                        className="projects-pagination-button projects-pagination-previous"
-                        onClick={() => goToPage(currentPage - 1)}
-                        disabled={currentPage === 1}
-                    >
-                        <span
-                            aria-hidden="true"
-                            className="projects-pagination-arrow"
-                        >
-                            ←
-                        </span>
-
-                        <span>
-                            Previous
-                        </span>
-                    </button>
-
-                    <span
-                        className="projects-pagination-status"
-                        aria-live="polite"
-                    >
-                        {formatPage(currentPage)}
-                        <span>/</span>
-                        {formatPage(totalPages)}
-                    </span>
-
-                    <button
-                        type="button"
-                        className="projects-pagination-button projects-pagination-next"
-                        onClick={() => goToPage(currentPage + 1)}
-                        disabled={currentPage === totalPages}
-                    >
-                        <span>
-                            Next
-                        </span>
-
-                        <span
-                            aria-hidden="true"
-                            className="projects-pagination-arrow"
-                        >
-                            →
-                        </span>
-                    </button>
                 </div>
             </div>
         </section>

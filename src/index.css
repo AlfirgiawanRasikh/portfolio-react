@@ -658,12 +658,12 @@ canvas {
 
 .experience-item {
     display: grid;
-    grid-template-columns: 120px 1fr auto;
-    align-items: center;
+    grid-template-columns: 160px 1fr auto;
+    align-items: start;
     gap: 32px;
 
     width: 100%;
-    padding: 28px 0;
+    padding: 32px 0;
 
     border-bottom: 1px solid rgba(255, 255, 255, 0.16);
 
@@ -679,11 +679,17 @@ canvas {
 
 .experience-year,
 .experience-type {
+    padding-top: 4px;
+
     font-size: 11px;
     letter-spacing: 0.12em;
     text-transform: uppercase;
 
     color: rgba(255, 255, 255, 0.42);
+}
+
+.experience-year {
+    white-space: nowrap;
 }
 
 .experience-info h3 {
@@ -701,12 +707,42 @@ canvas {
     transform: translateX(5px);
 }
 
-.experience-info p {
+.experience-info .experience-company {
     margin-top: 7px;
 
     font-size: 13px;
 
     color: rgba(255, 255, 255, 0.45);
+}
+
+.experience-info .experience-description {
+    max-width: 620px;
+    margin-top: 20px;
+
+    font-size: 13px;
+    line-height: 1.7;
+
+    color: rgba(255, 255, 255, 0.62);
+}
+
+.experience-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+
+    margin-top: 20px;
+}
+
+.experience-tech span {
+    padding: 5px 8px;
+
+    border: 1px solid rgba(255, 255, 255, 0.13);
+
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+
+    color: rgba(255, 255, 255, 0.48);
 }
 
 .experience-type {
@@ -1083,127 +1119,6 @@ canvas {
 
 
 /* =========================================================
-   PROJECTS PAGINATION
-========================================================= */
-
-.projects-pagination {
-    display: grid;
-    grid-template-columns: 1fr auto 1fr;
-    align-items: center;
-
-    width: 100%;
-    padding-top: 30px;
-}
-
-.projects-pagination-button {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-
-    width: fit-content;
-
-    border: 0;
-    padding: 0;
-
-    background: transparent;
-    cursor: pointer;
-
-    font-size: 9px;
-    font-weight: 400;
-    letter-spacing: 0.11em;
-    text-transform: uppercase;
-
-    color: rgba(255, 255, 255, 0.42);
-
-    transition:
-        color 0.3s ease,
-        transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
-        opacity 0.3s ease;
-}
-
-.projects-pagination-previous {
-    justify-self: start;
-}
-
-.projects-pagination-next {
-    justify-self: end;
-}
-
-.projects-pagination-button:hover:not(:disabled) {
-    color: rgba(255, 255, 255, 0.95);
-}
-
-.projects-pagination-previous:hover:not(:disabled) {
-    transform: translateX(-3px);
-}
-
-.projects-pagination-next:hover:not(:disabled) {
-    transform: translateX(3px);
-}
-
-.projects-pagination-button:disabled {
-    cursor: default;
-    opacity: 0.2;
-}
-
-.projects-pagination-arrow {
-    display: inline-block;
-
-    font-size: 15px;
-    font-weight: 300;
-    line-height: 1;
-
-    transition:
-        color 0.3s ease,
-        transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.projects-pagination-previous:hover:not(:disabled)
-.projects-pagination-arrow {
-    transform: translateX(-3px);
-}
-
-.projects-pagination-next:hover:not(:disabled)
-.projects-pagination-arrow {
-    transform: translateX(3px);
-}
-
-.projects-pagination-status {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-
-    font-size: 9px;
-    letter-spacing: 0.13em;
-
-    color: rgba(255, 255, 255, 0.32);
-}
-
-.projects-pagination-status span {
-    color: rgba(255, 255, 255, 0.14);
-}
-
-@media (max-width: 600px) {
-    .projects-pagination {
-        padding-top: 26px;
-    }
-
-    .projects-pagination-button,
-    .projects-pagination-status {
-        font-size: 8px;
-    }
-
-    .projects-pagination-button {
-        gap: 7px;
-    }
-
-    .projects-pagination-arrow {
-        font-size: 14px;
-    }
-}
-
-
-/* =========================================================
    CONTACT
 ========================================================= */
 
@@ -1394,7 +1309,7 @@ canvas {
     }
 
     .experience-item {
-        grid-template-columns: 70px 1fr;
+        grid-template-columns: 140px 1fr;
     }
 
     .experience-type {
@@ -1487,9 +1402,23 @@ canvas {
         padding-left: 0;
     }
 
+    .experience-year,
+    .experience-type {
+        padding-top: 0;
+    }
+
     .experience-type {
         display: block;
         text-align: left;
+    }
+
+    .experience-info .experience-description {
+        max-width: 100%;
+        margin-top: 16px;
+    }
+
+    .experience-tech {
+        margin-top: 16px;
     }
 
     .capabilities-grid {
@@ -1697,8 +1626,23 @@ canvas {
         font-size: 19px;
     }
 
-    .experience-info p {
+    .experience-info .experience-company {
         font-size: 11px;
+    }
+
+    .experience-info .experience-description {
+        margin-top: 14px;
+
+        font-size: 12px;
+        line-height: 1.7;
+    }
+
+    .experience-tech {
+        margin-top: 14px;
+    }
+
+    .experience-tech span {
+        font-size: 9px;
     }
 
     .experience-year,

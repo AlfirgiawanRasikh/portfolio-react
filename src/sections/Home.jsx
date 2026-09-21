@@ -11,12 +11,10 @@ function Home() {
             </span>
 
             <div className="home-content">
-
                 <div className="home-heading">
-
                     <Reveal>
                         <p className="eyebrow">
-                            INFORMATICS ENGINEERING GRADUATE
+                            FULL-STACK DEVELOPER / INFORMATICS ENGINEERING GRADUATE
                         </p>
                     </Reveal>
 
@@ -26,21 +24,17 @@ function Home() {
                             <span>Rasikh</span>
                         </h1>
                     </Reveal>
-
                 </div>
 
-
                 <div className="home-bottom">
-
                     <Reveal delay={170}>
                         <p className="home-description">
-                            Developer interested in building practical
-                            web applications, backend systems, and
-                            solving technical problems through
-                            hands-on development.
+                            Developer building practical web
+                            applications, backend systems, and reliable
+                            technical solutions through hands-on
+                            development.
                         </p>
                     </Reveal>
-
 
                     <Reveal delay={230}>
                         <div className="home-focus">
@@ -49,7 +43,7 @@ function Home() {
                             </span>
 
                             <p>
-                                Web Development
+                                Full-Stack Development
                                 <br />
                                 Backend Systems
                                 <br />
@@ -57,7 +51,6 @@ function Home() {
                             </p>
                         </div>
                     </Reveal>
-
 
                     <Reveal delay={290}>
                         <div className="home-location">
@@ -73,20 +66,20 @@ function Home() {
                         </div>
                     </Reveal>
 
-
                     <a
                         href="#about"
                         className="home-scroll"
                         aria-label="Scroll to About section"
                     >
-                        <span>Scroll</span>
+                        <span>
+                            Scroll
+                        </span>
+
                         <span className="home-scroll-arrow">
                             ↓
                         </span>
                     </a>
-
                 </div>
-
             </div>
         </section>
     );

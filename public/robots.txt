@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://alfirgiawan-rasikh.vercel.app/sitemap.xml
