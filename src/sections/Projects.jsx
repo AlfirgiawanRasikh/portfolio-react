@@ -3,6 +3,50 @@ import Reveal from "../components/Reveal";
 const projects = [
     {
         number: "01",
+        title: "DeskOps",
+
+        description:
+            "Role-aware IT operations platform for managing service tickets, asset inventory, SLA tracking, approval and resolution workflows, knowledge articles, notifications, audit logs, and operational reporting.",
+
+        technologies: [
+            "Next.js",
+            "TypeScript",
+            "PostgreSQL",
+            "Prisma",
+            "Better Auth",
+            "Tailwind CSS",
+        ],
+
+        year: "2026",
+        type: "IT Operations Platform",
+
+        repository:
+            "https://github.com/AlfirgiawanRasikh/deskops",
+    },
+    {
+        number: "02",
+        title: "Self-Hosted Home Server Infrastructure",
+
+        description:
+            "Production-oriented bare-metal Linux infrastructure built from repurposed hardware for hosting applications, APIs, databases, private storage, automated deployments, encrypted off-site backups, monitoring, and AI-assisted server operations.",
+
+        technologies: [
+            "Linux",
+            "Nginx",
+            "PostgreSQL",
+            "Cloudflare",
+            "Tailscale",
+            "systemd",
+            "Hermes Agent",
+        ],
+
+        year: "2026",
+        type: "Infrastructure / DevOps",
+
+        caseStudy: "/projects/home-server",
+    },
+    {
+        number: "03",
         title: "Media Monitoring Backend API",
 
         description:
@@ -22,7 +66,7 @@ const projects = [
             "https://github.com/AlfirgiawanRasikh/media-monitoring-assessment",
     },
     {
-        number: "02",
+        number: "04",
         title: "FORME",
 
         description:
@@ -43,7 +87,7 @@ const projects = [
             "https://github.com/AlfirgiawanRasikh/forme",
     },
     {
-        number: "03",
+        number: "05",
         title: "MORI",
 
         description:
@@ -64,7 +108,7 @@ const projects = [
             "https://github.com/AlfirgiawanRasikh/MORI",
     },
     {
-        number: "04",
+        number: "06",
         title: "Hardware Diagnosis Expert System",
 
         description:
@@ -82,28 +126,6 @@ const projects = [
 
         repository:
             "https://github.com/AlfirgiawanRasikh/sistem-pakar-hardware",
-    },
-    {
-        number: "05",
-        title: "Self-Hosted Home Server Infrastructure",
-
-        description:
-            "Production-oriented bare-metal Linux infrastructure built from repurposed hardware for hosting applications, APIs, databases, private storage, automated deployments, encrypted off-site backups, monitoring, and AI-assisted server operations.",
-
-        technologies: [
-            "Linux",
-            "Nginx",
-            "PostgreSQL",
-            "Cloudflare",
-            "Tailscale",
-            "systemd",
-            "Hermes Agent",
-        ],
-
-        year: "2026",
-        type: "Infrastructure / DevOps",
-
-        caseStudy: "/projects/home-server",
     },
 ];
 

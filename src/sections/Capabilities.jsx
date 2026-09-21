@@ -72,13 +72,15 @@ const capabilities = [
 
     {
         number: "06",
-        title: "Systems, Linux & IT Support",
+        title: "Infrastructure & IT Support",
         skills: [
-            "Windows",
             "Linux",
-            "Home Server",
+            "Linux Server Administration",
+            "Self-Hosting",
+            "Nginx",
+            "systemd",
             "System Monitoring",
-            "PC Building",
+            "Windows",
             "Hardware Troubleshooting",
             "Computer Maintenance",
             "Basic Networking",
@@ -105,9 +107,9 @@ function Capabilities() {
 
                 <Reveal delay={120}>
                     <p className="capabilities-intro">
-                        Technologies and technical areas I have worked
-                        with through projects, coursework, internships,
-                        and hands-on development.
+                        Technologies and technical areas I have used
+                        across projects, internship work, backend
+                        development, and self-hosted infrastructure.
                     </p>
                 </Reveal>
 
